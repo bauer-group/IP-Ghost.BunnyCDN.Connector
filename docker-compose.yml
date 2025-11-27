@@ -1,0 +1,55 @@
+version: "3"
+
+services:
+
+  ### Application Services ###
+  interface-server:    
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: ${STACK_NAME}_APP
+    environment:    
+      - TZ=${TIME_ZONE}
+
+      - GHOST_CDN_BASE_URL=${GHOST_CDN_BASE_URL}
+
+      - GHOST_URL=${GHOST_URL}
+      - GHOST_WEBHOOK_TARGET=${GHOST_WEBHOOK_TARGET}
+      
+      - GHOST_ADMIN_API_SECRET=${GHOST_ADMIN_API_SECRET}
+      - GHOST_WEBHOOK_SECRET=${GHOST_WEBHOOK_SECRET}
+
+      - BUNNYCDN_API_KEY=${BUNNYCDN_API_KEY}
+
+      - LOG_LEVEL=info
+    expose:
+      - 3000/tcp
+    labels:
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.${STACK_NAME}-web.rule=${PROXY_HOST_RULE}"
+      - "traefik.http.routers.${STACK_NAME}-web.entrypoints=web"
+      - "traefik.http.routers.${STACK_NAME}-web.middlewares=${STACK_NAME}-redirect-to-secure"      
+      - "traefik.http.middlewares.${STACK_NAME}-redirect-to-secure.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.${STACK_NAME}-redirect-to-secure.redirectscheme.permanent=true"      
+
+      - "traefik.http.routers.${STACK_NAME}.rule=${PROXY_HOST_RULE}"
+      - "traefik.http.routers.${STACK_NAME}.entrypoints=web-secure"
+      - "traefik.http.routers.${STACK_NAME}.tls=true"
+      - "traefik.http.routers.${STACK_NAME}.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.${STACK_NAME}.service=${STACK_NAME}"
+      #- "traefik.http.routers.${STACK_NAME}.middlewares=${STACK_NAME}-sts-header"
+      #- "traefik.http.middlewares.${STACK_NAME}-sts-header.headers.stsSeconds=31536000"
+      #- "traefik.http.middlewares.${STACK_NAME}-sts-header.headers.stsPreload=false"      
+      #- "traefik.http.middlewares.${STACK_NAME}-sts-header.headers.stsIncludeSubdomains=false"
+      - "traefik.http.services.${STACK_NAME}.loadBalancer.server.port=3000"
+    networks:    
+      proxy:
+        aliases:
+          - "${SERVER_HOSTNAME}.internal"
+
+networks:
+  proxy:
+    name: ${PROXY_NETWORK}
+    external: true
