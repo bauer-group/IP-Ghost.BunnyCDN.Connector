@@ -8,13 +8,16 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 # Bundle app source
 COPY . .
 
 # Build the TypeScript code
 RUN npm run build
+
+# Remove Development Dependencies for production
+RUN npm ci --omit=dev
 
 ##########################
 #### Production stage ####
@@ -27,12 +30,12 @@ LABEL maintainer="Karl Bauer <karl.bauer@bauer-group.com>"
 
 # Opencontainers Metadata
 LABEL org.opencontainers.image.title="Ghost BunnyCDN Connector"
-LABEL org.opencontainers.image.version="0.1.0"
+LABEL org.opencontainers.image.version="0.2.0"
 LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.vendor="BAUER GROUP"
 LABEL org.opencontainers.image.authors="Karl Bauer <karl.bauer@bauer-group.com>"
 LABEL org.opencontainers.image.source="https://github.com/bauer-group/Ghost.BunnyCDN.Connector"
-LABEL org.opencontainers.image.description="$(cat README.md)"
+LABEL org.opencontainers.image.description="Ghost CMS service for automatic BunnyCDN cache invalidation"
 
 
 # Install tini and curl

@@ -15,7 +15,7 @@ class Config {
     public static GHOST_WEBHOOK_TARGET: string = process.env.GHOST_WEBHOOK_TARGET || 'http://localhost:3000';
     public static BUNNYCDN_API_KEY: string = process.env.BUNNYCDN_API_KEY || '';
 
-    public static RequiredWebhooks = [
+    public static readonly RequiredWebhooks = [
         //"site.changed",
         //"post.added",
         //"post.deleted",
@@ -29,7 +29,7 @@ class Config {
         "page.published",
         "page.published.edited",
         "page.unpublished"
-    ];
+    ] as const;
 
     /**
      * Validates the required configuration parameters.

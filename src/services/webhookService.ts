@@ -173,7 +173,7 @@ class WebhookService {
         }
     }   
 
-    private handleEventCallback(event: string, payload: any) {
+    private handleEventCallback(event: string, payload: any): void {
         logger.debug(`Event callback "${event}" with payload: ${JSON.stringify(payload)} triggered`);
 
         if (!Config.GHOST_CDN_BASE_URL) {
@@ -182,7 +182,7 @@ class WebhookService {
         }
 
         const { post, page } = payload;
-    
+
         const slug = post?.current?.slug || page?.current?.slug;
         const baseUrl = Config.GHOST_CDN_BASE_URL.replace(/\/+$/, ''); // Remove trailing slashes
         const url = slug ? `${baseUrl}/${slug}` : null;
@@ -198,8 +198,11 @@ class WebhookService {
             logger.info(`Cache purge event ${event} raised for ${url}`);
 
             const purgeUrl = `${url}*`;
-            this.bunnyNetService.purgeCache(purgeUrl); // Purge cache for the URL
-            this.bunnyNetService.purgeCache(baseUrl); // Purge cache for the base URL (Homepage)
+            // Fire and forget - no need to wait for purge completion
+            Promise.all([
+                this.bunnyNetService.purgeCache(purgeUrl),
+                this.bunnyNetService.purgeCache(baseUrl)
+            ]).catch(err => logger.error(`Cache purge failed: ${err.message}`));
         } else {
             logger.warn(`No valid URL found in payload for event: ${event}`);
             throw new Error(`No valid URL found in payload for event: ${event}`);
@@ -208,17 +211,3 @@ class WebhookService {
 }
 
 export default WebhookService;
-
-/*
-{
-  "post": {
-    "current": {
-      "id": "67b47c17564f5400014ae74b",
-      "uuid": "ca191e7c-2bea-4595-937b-c59e32275801",
-      "title": "CDN Tester",
-      "slug": "cdn-tester",
-      "url": "https://my-site.com/p/ca191e7c-2bea-4595-937b-c59e32275801/"
-    }
-  }
-}
-*/

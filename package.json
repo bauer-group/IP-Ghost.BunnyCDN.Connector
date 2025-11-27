@@ -7,10 +7,11 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
-    "test": "jest",
-    "install-dependencies": "npm install",
-    "update-dependencies": "npm update",
-    "upgrade-dependencies": "npx npm-check-updates -u && npm update",
+    "test": "jest --passWithNoTests",
+    "test:coverage": "jest --coverage",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "rebuild": "npm run clean && npm run build",
     "docker-debug": "docker compose --env-file .env up --build"
   },
   "repository": {
@@ -39,13 +40,28 @@
   },
   "devDependencies": {
     "@types/compression": "^1.7.5",
-    "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.4",
     "jest": "^29.7.0",
+    "ts-jest": "^29.4.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testMatch": [
+      "**/*.test.ts",
+      "**/*.spec.ts"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.d.ts"
+    ]
   },
   "engines": {
     "node": ">=20.0.0"
