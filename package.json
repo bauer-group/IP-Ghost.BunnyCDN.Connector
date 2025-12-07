@@ -12,11 +12,14 @@
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist",
     "rebuild": "npm run clean && npm run build",
-    "docker-debug": "docker compose --env-file .env up --build"
+    "docker-debug": "docker compose --env-file .env up --build",
+    "update:safe": "npm update && npm audit fix",
+    "update:latest": "npx npm-check-updates -u && npm install",
+    "docker:build": "docker build -t ghost-bunnycdn-connector ."
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bauer-group/Ghost.BunnyCDN.Connector.git"
+    "url": "https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector.git"
   },
   "keywords": [
     "node",
