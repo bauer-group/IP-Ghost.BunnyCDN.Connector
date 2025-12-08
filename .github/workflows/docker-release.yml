@@ -1,0 +1,102 @@
+name: 🐳 Docker Build & Deploy
+
+# Builds Docker image and pushes to both GitHub Container Registry and Docker Hub
+#
+# Version Strategy:
+# - On tag push (v*.*.*): Updates Dockerfile LABEL with version from tag (strips 'v' prefix)
+#   and uses semver tagging for the image
+# - On branch push: Uses existing version from Dockerfile LABEL org.opencontainers.image.version
+#
+# Required Secrets:
+# - DOCKER_USERNAME: Docker Hub username
+# - DOCKER_PASSWORD: Docker Hub password/token
+
+on:
+  push:
+    branches: [main]
+    tags:
+      - 'v*.*.*'
+    paths:
+      - 'Dockerfile'
+      - 'src/**'
+      - 'package*.json'
+      - 'tsconfig.json'
+      - '.dockerignore'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'Dockerfile'
+      - 'src/**'
+      - 'package*.json'
+      - 'tsconfig.json'
+      - '.dockerignore'
+  workflow_dispatch:
+
+jobs:
+  # Build and push to GitHub Container Registry
+  ghcr:
+    name: Push to GitHub Registry
+    uses: bauer-group/automation-templates/.github/workflows/docker-build.yml@main
+    with:
+      # Registry: GitHub Container Registry
+      registry: 'ghcr.io'
+      image-name: 'bauer-group/ghost-bunnycdn-connector'
+
+      # Version tagging strategy
+      update-dockerfile-version: true
+      version-from-dockerfile: ${{ !startsWith(github.ref, 'refs/tags/v') }}
+
+      # Auto-generate tags (semver, branch, sha)
+      auto-tags: true
+      latest-tag: true
+
+      # Build settings
+      dockerfile-path: './Dockerfile'
+      docker-context: '.'
+      platforms: 'linux/amd64'
+
+      # Push to registry (skip on PRs)
+      push: ${{ github.event_name != 'pull_request' }}
+
+      # Security scanning
+      security-scan: true
+      security-fail-on: 'CRITICAL'
+      generate-sbom: ${{ github.event_name != 'pull_request' }}
+
+    secrets:
+      REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+
+  # Build and push to Docker Hub
+  dockerhub:
+    name: Push to Docker Hub
+    uses: bauer-group/automation-templates/.github/workflows/docker-build.yml@main
+    with:
+      # Registry: Docker Hub
+      registry: 'docker.io'
+      registry-username: ${{ vars.DOCKER_USERNAME }}
+      image-name: 'bauergroup/ghost-bunnycdn-connector'
+
+      # Version tagging strategy
+      update-dockerfile-version: true
+      version-from-dockerfile: ${{ !startsWith(github.ref, 'refs/tags/v') }}
+
+      # Auto-generate tags (semver, branch, sha)
+      auto-tags: true
+      latest-tag: true
+
+      # Build settings
+      dockerfile-path: './Dockerfile'
+      docker-context: '.'
+      platforms: 'linux/amd64'
+
+      # Push to registry (skip on PRs)
+      push: ${{ github.event_name != 'pull_request' }}
+
+      # Security scanning (already done in ghcr job, skip here for speed)
+      security-scan: false
+
+      # Sync README to Docker Hub
+      sync-dockerhub-readme: true
+
+    secrets:
+      REGISTRY_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
