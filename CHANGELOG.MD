@@ -1,3 +1,9 @@
+## [0.4.0](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.3.0...v0.4.0) (2025-12-09)
+
+### 🚀 Features
+
+* füge automatisierten Release-Workflow hinzu und entferne veralteten Docker-Release-Workflow ([8611364](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/8611364e83e200644713568cedebcbcdf458c372))
+
 ## [0.3.0](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.2.1...v0.3.0) (2025-12-09)
 
 ### 🚀 Features
