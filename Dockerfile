@@ -30,7 +30,7 @@ LABEL maintainer="Karl Bauer <karl.bauer@bauer-group.com>"
 
 # Opencontainers Metadata
 LABEL org.opencontainers.image.title="Ghost BunnyCDN Connector"
-LABEL org.opencontainers.image.version="0.6.0"
+LABEL org.opencontainers.image.version="0.6.2"
 LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.vendor="BAUER GROUP"
 LABEL org.opencontainers.image.authors="Karl Bauer <karl.bauer@bauer-group.com>"
