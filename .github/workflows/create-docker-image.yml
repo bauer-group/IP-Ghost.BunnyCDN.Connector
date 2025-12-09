@@ -36,9 +36,9 @@ jobs:
       # Options: 'ghcr' (default), 'dockerhub', 'both'
       publish-to: 'both'
 
-      # Image names
-      image-name: 'bauer-group/ghost-bunnycdn-connector'
-      secondary-image-name: 'bauergroup/ghost-bunnycdn-connector'
+      # Image names per registry
+      ghcr-image-name: 'bauer-group/ghost-bunnycdn-connector'
+      docker-image-name: 'bauergroup/ghost-bunnycdn-connector'
 
       # Version tagging strategy
       update-dockerfile-version: true
