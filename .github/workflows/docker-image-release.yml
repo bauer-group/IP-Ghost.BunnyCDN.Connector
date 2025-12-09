@@ -26,6 +26,7 @@ permissions:
   packages: write
   issues: write
   pull-requests: write
+  security-events: write
 
 jobs:
   # Step 1: Create Release (only on main push, not PRs)
