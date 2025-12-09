@@ -41,8 +41,12 @@ jobs:
       docker-image-name: 'bauergroup/ghost-bunnycdn-connector'
 
       # Version tagging strategy
+      # - On tag push: update-dockerfile-version extracts version from tag and updates Dockerfile
+      # - On branch push: version-from-dockerfile extracts version from Dockerfile LABEL
+      # - semver-from-dockerfile: generates additional semver tags (0.2, 0) from Dockerfile version
       update-dockerfile-version: true
       version-from-dockerfile: ${{ !startsWith(github.ref, 'refs/tags/v') }}
+      semver-from-dockerfile: true
 
       # Auto-generate tags (semver, branch, sha)
       auto-tags: true
