@@ -1,3 +1,9 @@
+## [0.6.2](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.6.1...v0.6.2) (2025-12-09)
+
+### 🐛 Bug Fixes
+
+* aktualisiere die Version in den Opencontainers-Metadaten auf 0.6.0 ([6b5e372](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/6b5e372da6c363d5000986a21c9cf0e20df34607))
+
 ## [0.6.1](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.6.0...v0.6.1) (2025-12-09)
 
 ### 🐛 Bug Fixes
