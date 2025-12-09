@@ -52,15 +52,12 @@ jobs:
       ghcr-image-name: 'bauer-group/ghost-bunnycdn-connector'
       docker-image-name: 'bauergroup/ghost-bunnycdn-connector'
 
-      # Version vom erstellten Release Tag verwenden
-      image-tags: |
-        type=raw,value=${{ needs.release.outputs.version }}
-        type=raw,value=latest
+      # NEU: Release-Version übergeben für korrektes Tagging
+      release-version: ${{ needs.release.outputs.version }}
 
       update-dockerfile-version: true
-      version-from-dockerfile: false
-      semver-from-dockerfile: false
-      auto-tags: false  # Wir setzen Tags manuell
+      auto-tags: true
+      latest-tag: true
 
       dockerfile-path: './Dockerfile'
       docker-context: '.'
@@ -88,7 +85,7 @@ jobs:
       docker-context: '.'
       platforms: 'linux/amd64'
 
-      push: false  # Nur bauen, nicht pushen
+      push: false
 
       security-scan: true
       security-fail-on: 'CRITICAL'
