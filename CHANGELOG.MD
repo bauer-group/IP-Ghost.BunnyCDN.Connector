@@ -1,3 +1,14 @@
+## [0.6.0](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.5.0...v0.6.0) (2025-12-09)
+
+### 🚀 Features
+
+* aktualisiere Docker-Release-Workflow für korrektes Tagging und aktiviere automatische Tags ([0ae884e](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/0ae884ed0de9bf76bb4aef2f97f4f3e32c9b90a5))
+* füge EditorConfig-Datei hinzu für konsistente Formatierung ([072a059](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/072a059a4b0445e9dd2ecd33f6793be75eb966b5))
+
+### 🐛 Bug Fixes
+
+* füge fehlende neue Zeile am Ende der Datei hinzu ([c676186](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/c67618614d9c354aa610ee0c31044238b8a79e7b))
+
 ## [0.5.0](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.4.0...v0.5.0) (2025-12-09)
 
 ### 🚀 Features
