@@ -1,0 +1,49 @@
+name: 🐳 Docker Build
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'Dockerfile'
+      - 'src/**'
+      - 'package*.json'
+      - 'tsconfig.json'
+      - '.dockerignore'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  packages: write
+  security-events: write
+
+jobs:
+  docker-build:
+    name: Build & Push Docker Image
+    uses: bauer-group/automation-templates/.github/workflows/docker-build.yml@main
+    with:
+      publish-to: 'both'
+      ghcr-image-name: 'bauer-group/ghost-bunnycdn-connector'
+      docker-image-name: 'bauergroup/ghost-bunnycdn-connector'
+
+      update-dockerfile-version: true
+      version-from-dockerfile: false
+      semver-from-dockerfile: false
+
+      auto-tags: true
+      latest-tag: true
+
+      dockerfile-path: './Dockerfile'
+      docker-context: '.'
+      platforms: 'linux/amd64'
+
+      push: ${{ github.event_name != 'pull_request' }}
+
+      security-scan: true
+      security-fail-on: 'CRITICAL'
+      generate-sbom: ${{ github.event_name != 'pull_request' }}
+
+      sync-dockerhub-readme: true
+    secrets: inherit
