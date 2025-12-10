@@ -34,7 +34,7 @@ LABEL org.opencontainers.image.version="0.6.2"
 LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.vendor="BAUER GROUP"
 LABEL org.opencontainers.image.authors="Karl Bauer <karl.bauer@bauer-group.com>"
-LABEL org.opencontainers.image.source="https://github.com/bauer-group/Ghost.BunnyCDN.Connector"
+LABEL org.opencontainers.image.source="https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector"
 LABEL org.opencontainers.image.description="Ghost CMS service for automatic BunnyCDN cache invalidation"
 
 
