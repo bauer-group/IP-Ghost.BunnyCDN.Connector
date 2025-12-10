@@ -1,3 +1,9 @@
+## [0.6.5](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.6.4...v0.6.5) (2025-12-10)
+
+### 🐛 Bug Fixes
+
+* aktualisiere Metadaten im Dockerfile für konsistente Quellenangaben ([e0a3a98](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/e0a3a981987e21700c2272ac5e4698ee8d78f1b2))
+
 ## [0.6.4](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.6.3...v0.6.4) (2025-12-10)
 
 ### 🐛 Bug Fixes
