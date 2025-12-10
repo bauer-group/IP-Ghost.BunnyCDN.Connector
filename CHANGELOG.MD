@@ -1,3 +1,9 @@
+## [0.6.3](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.6.2...v0.6.3) (2025-12-10)
+
+### 🐛 Bug Fixes
+
+* aktualisiere den Quell-Link in den Opencontainers-Metadaten und passe den ghcr-Image-Namen an ([dd82440](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/dd824403930adddf6aaf9d73f9d6997164fe8ef5))
+
 ## [0.6.2](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.6.1...v0.6.2) (2025-12-09)
 
 ### 🐛 Bug Fixes
