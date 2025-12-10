@@ -9,7 +9,7 @@ Ghost CMS actually sets `Cache-Control: public, max-age=0` by default for html (
 The Docker image for this service is available on **Docker Hub** as:
 
 ```
-bauer-group/ghost-bunnycdn-connector:latest
+bauergroup/ghost-bunnycdn-connector:latest
 ```
 
 ## Features
@@ -105,7 +105,7 @@ services:
       - TZ=Etc/UTC
     expose:
       - 3000/tcp
-    networks:    
+    networks:
       local:
 ```
 
@@ -114,13 +114,13 @@ services:
 To quickly set up a new **BunnyCDN Pull Zone** via API, you can use the following anonymized API request:
 
 ```json
-{  
+{
   "Name": "your-custom-domain",
   "OriginUrl": "https://cms.your-custom-domain.com",
   "Enabled": true,
   "Suspended": false,
   "Hostnames": [
-    {      
+    {
       "Value": "your-custom-domain.b-cdn.net",
       "ForceSSL": false,
       "IsSystemHostname": true,
@@ -159,7 +159,7 @@ To quickly set up a new **BunnyCDN Pull Zone** via API, you can use the followin
   "EnableGeoZoneASIA": true,
   "EnableGeoZoneSA": true,
   "EnableGeoZoneAF": true,
-  "ZoneSecurityEnabled": false,  
+  "ZoneSecurityEnabled": false,
   "ZoneSecurityIncludeHashRemoteIP": false,
   "IgnoreQueryStrings": false,
   "MonthlyBandwidthLimit": 0,
@@ -207,7 +207,7 @@ To quickly set up a new **BunnyCDN Pull Zone** via API, you can use the followin
   "EnableCacheSlice": false,
   "EnableSmartCache": false,
   "EdgeRules": [
-    {      
+    {
       "ActionType": 15,
       "ActionParameter1": "",
       "ActionParameter2": "",
@@ -247,7 +247,7 @@ To quickly set up a new **BunnyCDN Pull Zone** via API, you can use the followin
       "Enabled": true,
       "OrderIndex": 0
     },
-    {      
+    {
       "ActionType": 15,
       "ActionParameter1": "",
       "ActionParameter2": "",
@@ -287,7 +287,7 @@ To quickly set up a new **BunnyCDN Pull Zone** via API, you can use the followin
       "Enabled": true,
       "OrderIndex": 0
     },
-    {      
+    {
       "ActionType": 12,
       "ActionParameter1": "",
       "ActionParameter2": "",
