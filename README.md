@@ -75,7 +75,7 @@ BUNNYCDN_API_KEY=your_api_key
 The service is deployed via **Docker Hub**:
 
 ```sh
-docker pull bauer-group/ghost-bunnycdn-connector:latest
+docker pull bauergroup/ghost-bunnycdn-connector:latest
 ```
 
 Run the service manually with environment variables:
