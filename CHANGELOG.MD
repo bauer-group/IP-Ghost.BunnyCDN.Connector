@@ -1,3 +1,9 @@
+## [0.6.4](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.6.3...v0.6.4) (2025-12-10)
+
+### 🐛 Bug Fixes
+
+* update baseline-browser-mapping version to 2.9.6 ([f320f03](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/f320f03e7c0b4cc5ddfa6ea37c974eb35a14c4fd))
+
 ## [0.6.3](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.6.2...v0.6.3) (2025-12-10)
 
 ### 🐛 Bug Fixes
