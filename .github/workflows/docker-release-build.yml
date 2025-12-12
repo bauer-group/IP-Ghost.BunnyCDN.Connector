@@ -39,6 +39,7 @@ jobs:
       target-branch: 'main'
       dry-run: false
       force-release: ${{ inputs.force-release || false }}
+      extra-plugins: '@semantic-release/npm'
     secrets: inherit
 
   # Docker Build für Release (nach erfolgreichem Release)
