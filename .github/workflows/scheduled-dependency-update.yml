@@ -12,6 +12,7 @@ permissions:
 
 jobs:
   update-dependencies:
+    name: 📦 Update & Verify Dependencies
     runs-on: ubuntu-latest
 
     steps:
