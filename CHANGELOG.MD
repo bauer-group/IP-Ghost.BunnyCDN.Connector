@@ -1,3 +1,17 @@
+# [0.7.0](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.6.5...v0.7.0) (2025-12-12)
+
+
+### Bug Fixes
+
+* aktualisiere Versionsnummer auf 0.6.5 in package.json ([5b22468](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/5b22468a29b41361477979041cc5a6104f61e8ee))
+
+
+### Features
+
+* füge Konfiguration für semantic-release hinzu ([5b28856](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/5b2885687de3aff8086f1f0721e5edf881c377fe))
+* füge monatliches Abhängigkeitsupdate-Workflow hinzu ([7bde3b0](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/7bde3b010d46a041aeaa34a0488ed4b74853ddce))
+* füge Namen für den Update-Job im Abhängigkeitsupdate-Workflow hinzu ([8d343d2](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/8d343d2dc0dbf735bee4b4d45a9c9b8633809175))
+
 ## [0.6.5](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.6.4...v0.6.5) (2025-12-10)
 
 ### 🐛 Bug Fixes
