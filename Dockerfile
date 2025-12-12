@@ -37,7 +37,7 @@ LABEL org.opencontainers.image.source="https://github.com/bauer-group/IP-Ghost.B
 LABEL org.opencontainers.image.url="https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector"
 LABEL org.opencontainers.image.documentation="https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector#readme"
 LABEL org.opencontainers.image.description="Ghost CMS service for automatic BunnyCDN cache invalidation"
-LABEL org.opencontainers.image.version="0.6.5"
+LABEL org.opencontainers.image.version="0.7.0"
 
 # Install tini and curl
 RUN apk add --no-cache tini curl
