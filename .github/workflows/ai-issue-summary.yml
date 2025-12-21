@@ -1,4 +1,4 @@
-name: Issue AI Summary
+name: 🤖 Issue AI Summary
 
 on:
   issues:
@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   summarize-new-issue:
-    name: Generate AI Summary
+    name: 🧠 Generate AI Summary
     if: github.event_name == 'issues' || github.event_name == 'pull_request_target'
     uses: bauer-group/automation-templates/.github/workflows/modules-ai-issue-summary.yml@main
     with:
