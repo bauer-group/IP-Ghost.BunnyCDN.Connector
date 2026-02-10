@@ -49,7 +49,7 @@ jobs:
     if: needs.release.outputs.release-created == 'true'
     uses: bauer-group/automation-templates/.github/workflows/docker-build.yml@main
     with:
-      publish-to: 'both'
+      publish-to: 'ghcr'
       ghcr-image-name: 'bauer-group/IP-Ghost.BunnyCDN.Connector/ghost-bunnycdn-connector'
       docker-image-name: 'bauergroup/ghost-bunnycdn-connector'
 
