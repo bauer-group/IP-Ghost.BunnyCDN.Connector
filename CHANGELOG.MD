@@ -1,3 +1,10 @@
+## [0.7.1](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.7.0...v0.7.1) (2026-02-10)
+
+### 🐛 Bug Fixes
+
+* Dependency Mainternance ([80e40ec](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/80e40ecfe12ba0e9bec908401dc745c59639ce29))
+* update Docker publish target to 'ghcr' ([95b63e7](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/95b63e7265f43daa4ea13dd1e7d948ec5601422b))
+
 # [0.7.0](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.6.5...v0.7.0) (2025-12-12)
 
 
