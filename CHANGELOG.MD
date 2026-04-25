@@ -1,3 +1,9 @@
+## [0.7.2](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.7.1...v0.7.2) (2026-04-25)
+
+### 🐛 Bug Fixes
+
+* **deps:** update @tryghost/admin-api to 1.14.7 and axios to 1.15.2 ([cb5d53e](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/commit/cb5d53ead1a342b365907150a0908dcd5daa2ae4))
+
 ## [0.7.1](https://github.com/bauer-group/IP-Ghost.BunnyCDN.Connector/compare/v0.7.0...v0.7.1) (2026-02-10)
 
 ### 🐛 Bug Fixes
