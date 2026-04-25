@@ -30,8 +30,8 @@
   "author": "BAUER GROUP (Karl Bauer)",
   "license": "MIT",
   "dependencies": {
-    "@tryghost/admin-api": "^1.14.2",
-    "axios": "^1.15.0",
+    "@tryghost/admin-api": "^1.14.7",
+    "axios": "^1.15.2",
     "body-parser": "^2.2.1",
     "compression": "^1.8.1",
     "dotenv": "^17.2.3",
